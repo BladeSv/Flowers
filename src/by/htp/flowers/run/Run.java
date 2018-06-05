@@ -5,6 +5,8 @@ public class Run {
 static int quantityAcc=3;
 static int quantityFlo=9;
 static int bouquetInd;
+static int min=2;
+static int max=10;
 	public static void main(String[] args) {
 		
 		Accessory ArrayAcc[] = new Accessory[quantityAcc]; 
@@ -64,18 +66,20 @@ static int bouquetInd;
 				break;
 			}
 		}
-		Bouquet bouquet[] =new Bouquet[quantityAcc+quantityFlo];
-		
+		partsBouquet[]  partsBouquet =new partsBouquet [quantityAcc+quantityFlo];
+		Bouquet bouquet = new Bouquet();
+		bouquet.setBouquet(partsBouquet);
+		bouquet.setName("BestBouquet");
 		new DaySort(ArrayFlo).daySort();
 		
-				while(bouquetInd<(quantityAcc+quantityFlo)) {
+			
 					for(Flower flo:ArrayFlo) {
-						bouquet[bouquetInd]	= flo;
+						partsBouquet[bouquetInd]= flo;
 						bouquetInd++;
 					
 					}
 					for(Accessory Acc:ArrayAcc) {
-						bouquet[bouquetInd]	= Acc;
+						partsBouquet[bouquetInd]	= Acc;
 						bouquetInd++;
 					}
 					System.out.println();
@@ -83,16 +87,18 @@ static int bouquetInd;
 					
 			
 				
-					for(Bouquet Bou:bouquet) {
+					for(partsBouquet Bou:bouquet.getBouquet()) {
 						
-						System.out.println(Bou);
-					
+						System.out.println(Bou);					
 				}
-			
+					new FlowerFind(ArrayFlo, min, max).flowerfind();
+					
+			System.out.println();
+			System.out.println("Total price "+bouquet.getName()+" = "+String.format("%.3f", bouquet.getPrice())+" бел.руб.");
 			
 	}
 
 }
-		}
+		
 	
 
