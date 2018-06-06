@@ -1,39 +1,40 @@
 package by.htp.flowers.run;
 
 import by.htp.flowers.emtty.AliveFlower;
+import by.htp.flowers.emtty.Bouquet;
 import by.htp.flowers.emtty.Flower;
-	
+import by.htp.flowers.emtty.partsBouquet;
+
 public class DaySort {
-	Flower[] ArraySort;
-	public DaySort(Flower[] ArrayFlo) {
-		ArraySort=ArrayFlo;
-	}
-	
-	public void daySort () {
+	private Bouquet bou;
 
-		Flower tepm= new Flower();
-		for(int i=0;i<ArraySort.length;i++) {
-			
-			for(int j=0; j<ArraySort.length;j++) {
-				if(ArraySort[i].getClass().getSimpleName().equals("AliveFlower")) {
-					if(ArraySort[j].getClass().getSimpleName().equals("AliveFlower")){
-					
-					if((((AliveFlower)ArraySort[i]).getCutDay())<(((AliveFlower)ArraySort[j]).getCutDay())) {
-						
-						tepm=ArraySort[j];
-						ArraySort[j]=ArraySort[i];
-						ArraySort[i]=tepm;
+	public DaySort(Bouquet bou) {
+		this.bou = bou;
+	}
+
+	public void daySort() {
+
+		partsBouquet tepm = new partsBouquet();
+		for (int i = 0; i < bou.getBouquet().length; i++) {
+
+			for (int j = 0; j < bou.getBouquet().length; j++) {
+				if (bou.getBouquet()[i].getClass().getSimpleName().equals("AliveFlower")) {
+					if (bou.getBouquet()[j].getClass().getSimpleName().equals("AliveFlower")) {
+
+						if ((((AliveFlower) bou.getBouquet()[i]).getCutDay()) < (((AliveFlower) bou.getBouquet()[j])
+								.getCutDay())) {
+
+							tepm = bou.getBouquet()[j];
+							bou.getBouquet()[j] = bou.getBouquet()[i];
+							bou.getBouquet()[i] = tepm;
+						}
 					}
-				}
-				
-			}
-			}
-		}
-	
-		}
-		
-		
-		
-	}
-	
 
+				}
+			}
+		}
+
+		System.out.println("Сортировка завершина.");
+	}
+
+}
