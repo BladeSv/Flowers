@@ -1,12 +1,22 @@
 package by.htp.flowers.emtty;
 
 public class Tape extends Accessory {
- private String color;
- private int length;
- public Tape(String accessoryType, int price, String color,int length ) {
-	 super(accessoryType, price);
-	 this.color=color;
-	 this.length=length;
-	// TODO Auto-generated constructor stub
-}
+
+	private int length;
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public String toString() {
+		return "Название аксессуара=" + this.getName() + ", стоимость аксессуара="
+				+ String.format("%.3f", this.getPrice()) + " бел.руб.," + " цвет аксессуара=" + this.getColor()
+				+ ", длина ленты=" + this.getLength();
+
+	}
+
 }

@@ -1,12 +1,23 @@
 package by.htp.flowers.emtty;
 
 public class ParkingPaper extends Accessory {
- private String color;
- private int size;
- public ParkingPaper(String accessoryType, int price, String color, int size ) {
-	 super(accessoryType, price);
-	 this.color=color;
-	 this.size=size;
-	// TODO Auto-generated constructor stub
-}
+
+	private int size;
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Название аксессуара=" + this.getName() + ", стоимость аксессуара="
+				+ String.format("%.3f", this.getPrice()) + " бел.руб.," + " цвет аксессуара=" + this.getColor()
+				+ ", длина стороны=" + this.getSize();
+
+	}
 }
